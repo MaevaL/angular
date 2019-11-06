@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class PostListComponent implements OnInit {
 
-  @Input() postsList:[];
+  @Input() postsList:any[];
 
   constructor() { }
 
