@@ -1,13 +1,13 @@
 <li 
 [ngClass]="{'list-group-item': true,
-'list-group-item-success': loveIts > '0',
-'list-group-item-danger': loveIts <= 0}">
+'list-group-item-success': post.loveIts > 0,
+'list-group-item-danger': post.loveIts <= 0}">
 
-<h4 ml-1>{{title}}</h4>
-<p>{{created_at | date:'M/d/yyyy, h:mm:a'}}</p>
-<p>{{content}}</p> 
+    <h4 ml-1>{{post.title}}</h4>
+    <p>{{post.created_at | date:'M/d/yyyy, h:mm:a'}}</p>
+    <p>{{post.content}}</p> 
 
-<button class="btn btn-success" (click)="onLike()" >Like</button>
-<button class="btn btn-danger" (click)="onDislike()" >Dislike</button>
+    <button class="btn btn-success" (click)="onLike()" >Like</button>
+    <button class="btn btn-danger" (click)="onDislike()" >Dislike</button>
 
 </li>
