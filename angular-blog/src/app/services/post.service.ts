@@ -1,11 +1,13 @@
 import { Injectable, OnInit } from '@angular/core';
 import { Post } from '../post';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
 
+  postSubject = new Subject<any[]>();
   posts:Array<Post> = new Array<Post>();
    
 
@@ -23,6 +25,7 @@ export class PostService {
 
   addPost(post: Post){
     this.posts.push(post);
+    this.postSubject.next(this.posts.slice());
   }
 
   deletePost(post: Post){}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
