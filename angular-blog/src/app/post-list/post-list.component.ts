@@ -12,8 +12,13 @@ export class PostListComponent implements OnInit {
   postsList:Array<Post> = new Array<Post>();
 
   constructor(private postService: PostService) { 
+    // this.postService.getPosts().subscribe(posts => {
+    //   this.postsList = posts;
+    // }
+    // );
     this.postsList = this.postService.posts;
     console.log(this.postsList.length);
+    
   }
 
   ngOnInit() {

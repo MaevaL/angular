@@ -1,13 +1,12 @@
 import { Injectable, OnInit } from '@angular/core';
 import { Post } from '../post';
-import { Subject } from 'rxjs';
+import { Subject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
 
-  postSubject = new Subject<any[]>();
   posts:Array<Post> = new Array<Post>();
    
 
@@ -23,10 +22,33 @@ export class PostService {
     console.log(this.posts.length);
   }
 
+
   addPost(post: Post){
     this.posts.push(post);
-    this.postSubject.next(this.posts.slice());
+
   }
 
-  deletePost(post: Post){}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+  deletePost(post: Post){
+    this.posts = this.posts.filter(
+      p => p !== post
+    );
+
+  } 
+  
+  addLoveIts(post: Post){
+    ++post.loveIts;
+  }
+
+  deleteLoveIts(post: Post){
+    --post.loveIts;
+  }
+
+  // getPosts() : Observable<Post[]> {
+  //   return new Observable<Post[]>(
+  //     (resolve, reject) => {
+  //       resolve(this.posts);
+  //       reject()
+  //     } 
+  //   )
+  // }
 }
